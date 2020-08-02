@@ -1,5 +1,12 @@
 # Serverless-ETL
 
+## Goal
+Create a [serverless framework](https://www.serverless.com) solution that will:
+1. Create an S3 bucket
+2. Create a DynamoDB table
+3. Create a Lambda function that extracts the file from s3 and loads to the created DynamoDB table.
+4. Create a Serverless plugin that calls the Lambda function to begin the ETL. 
+
 ## Dependencies
 - Node.js installed (created using 12.16.1)
 - Serverless installed as a global dependency (`npm install -g serverless`)
