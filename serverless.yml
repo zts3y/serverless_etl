@@ -1,0 +1,42 @@
+service: serverless-etl
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+functions:
+  hello:
+    handler: handler.hello
+
+plugins:
+  - serverless-plugin-scripts
+
+custom:
+  scripts:
+    hooks:
+      'deploy:finalize': aws s3 cp ./resources/users.csv s3://${opt:bucket}/users.csv 
+
+resources: 
+      Resources:
+        users:
+          Type: AWS::DynamoDB::Table
+          Properties:
+            TableName: users
+            AttributeDefinitions:
+              - AttributeName: email
+                AttributeType: S
+              - AttributeName: name
+                AttributeType: S
+            KeySchema:
+              - AttributeName: email
+                KeyType: HASH
+              - AttributeName: name
+                KeyType: RANGE
+            ProvisionedThroughput:
+              ReadCapacityUnits: 1
+              WriteCapacityUnits: 1
+        S3Bucket:
+          Type: AWS::S3::Bucket
+          Properties:
+            AccessControl: Private
+            BucketName: ${opt:bucket}
