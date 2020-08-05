@@ -9,6 +9,7 @@ functions:
     handler: handler.hello
 
 plugins:
+  - etl
   - serverless-plugin-scripts
 
 custom:
