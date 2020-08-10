@@ -16,7 +16,7 @@ Create a [serverless framework](https://www.serverless.com) solution that will:
 ## Executing
 1. Ensure your `pwd` is set to the project solution directory.
 2. Run `npm install` to install other dependencies.
-3. Run `serverless invoke local --function hello --bucket zsarver-etl-input` to test the lambda function that loads DynamoDB.
+3. Run `serverless invoke local --function etl --bucket zsarver-etl-input` to test the lambda function that loads DynamoDB.
 3. Run `npm run deploy` to deploy the serverless stack.
 4. Run `npm run etl` to execute the plug-in to load the file from s3 into DynamoDB.
 
