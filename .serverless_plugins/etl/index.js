@@ -28,9 +28,10 @@ class ETL {
 
   async etlRunning() {
     this.serverless.cli.log("ETL running");
+    //TODO: Should move FunctionName to a variable. 
     const data = await lambda.invoke(
       {
-        FunctionName: "serverless-etl-dev-hello",
+        FunctionName: "serverless-etl-dev-etl",
         InvocationType: "RequestResponse",
       }
     ).promise();

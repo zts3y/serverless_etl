@@ -5,6 +5,7 @@ const csv = require("csvtojson");
 const { map } = require("p-iteration");
 const { v4: uuidv4 } = require("uuid");
 
+//TODO: Investigate a batch load function.
 async function saveItemInDB(item) {
   const dynamoDB = new AWS.DynamoDB.DocumentClient();
   const params = {
@@ -22,9 +23,10 @@ async function saveItemInDB(item) {
     .catch((err) => err);
 }
 
-exports.hello = async (event) => {
+exports.etl = async (event) => {
   const S3 = new AWS.S3();
 
+  //TODO: Reference bucketname as a variable based on what is passed during the sls deploy
   const params = {
     Bucket: "zsarver-etl-input",
     Key: "users.csv",

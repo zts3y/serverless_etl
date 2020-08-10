@@ -5,8 +5,8 @@ provider:
   runtime: nodejs12.x
 
 functions:
-  hello:
-    handler: handler.hello
+  etl:
+    handler: handler.etl
 
 plugins:
   - etl
