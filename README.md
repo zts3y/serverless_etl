@@ -29,3 +29,8 @@ Create a [serverless framework](https://www.serverless.com) solution that will:
     - A custom post deploy hook has been defined that will upload the file located at `./resources/users.csv` to the defined S3 bucket.
 - handler.js
     - Contains all Lambda functions.
+- .serverless_plugins/etl/index.js
+    - Custom Serverless framework plug `etl` that will call the Lambda to start the ETL. 
+- resources/users.csv
+    - Dummy data file that is deployed as a post deploy hook from the stack.
+    - Update with additional data to test significantly larger use cases.
