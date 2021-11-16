@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "aws-sdk": "^2.726.0",
+    "aws-sdk": "^2.814.0",
     "csvtojson": "^2.0.10",
     "p-iteration": "^1.1.8",
     "serverless-plugin-scripts": "^1.0.2",
